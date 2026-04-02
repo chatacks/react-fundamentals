@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({children, className, ...props}: ButtonProps) {
   return (
     <button 
-      className={`${className} ${styles.button}`}
+      className={`${className ? className : styles.button}`}
       {...props}
     >
       {children}
