@@ -1,0 +1,17 @@
+.input {
+  max-width: 40rem;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--gray-700);
+  border-radius: .5rem;
+  background-color: var(--gray-500);
+
+  &::placeholder {
+    color: var(--gray-300);
+  }
+
+  &:focus {
+    outline: 1px solid var(--purple-500);
+    border: 1px solid transparent;
+  }
+}
