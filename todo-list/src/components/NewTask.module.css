@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(0px - 1.4rem - 6px);
+  gap: .5rem;
+}
