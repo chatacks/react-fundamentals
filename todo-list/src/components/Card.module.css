@@ -49,7 +49,6 @@
     }
   }
 
-
   & .buttonCard {
     background-color: transparent;
     border: none;
@@ -62,5 +61,13 @@
       cursor: pointer;
       color: var(--danger);
     }
+
+    &:focus {
+      outline: 1px solid var(--purple-200);
+    }
   }
+}
+
+.wrapper+.wrapper {
+  margin-top: .75rem;
 }
