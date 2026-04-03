@@ -14,8 +14,18 @@
 
   transition: background-color 500ms ease;
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: var(--blue-200);
     cursor: pointer;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    border: 1px solid transparent;
+    outline: 1px solid var(--purple-200);
   }
 }

@@ -5,3 +5,62 @@
   margin-top: calc(0px - 1.4rem - 6px);
   gap: .5rem;
 }
+
+.wrapperTasks {
+  margin-inline: auto;
+  margin-top: 4rem;
+  max-width: 46rem;
+
+  & .tasksCounter {
+    display: flex;
+    justify-content: space-between;
+
+    & .hidden {
+      visibility: hidden;
+    }
+
+    & .visible {
+      visibility: initial;
+    }
+
+    & .badge {
+      display: inline-block;
+
+      font-size: var(--text-xs);
+      font-weight: var(--fw-bold);
+      color: var(--gray-100);
+
+      background-color: var(--gray-400);
+      border-radius: 20% / 50%;
+      padding: .125rem .5rem;
+    }
+
+    &>div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      gap: .5rem;
+    }
+
+    & div>span.visible:nth-child(1) {
+      font-weight: var(--fw-bold);
+      color: var(--blue-200);
+      font-size: var(--text-xs);
+    }
+
+    & div:nth-child(2)>span.visible {
+      font-weight: var(--fw-bold);
+      color: var(--purple-200);
+      font-size: var(--text-xs);
+    }
+  }
+
+  & .separator {
+    margin-top: 1.5rem;
+
+    border-top: 1px solid var(--gray-400);
+    border-radius: .5rem;
+  }
+
+}
