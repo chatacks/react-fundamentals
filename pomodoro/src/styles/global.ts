@@ -38,8 +38,8 @@ export const GlobalStyle = createGlobalStyle`
     --gray-600: ${({ theme }) => theme.colors.gray600};
     --gray-700: ${({ theme }) => theme.colors.gray700};
 
-    --danger-500: ${({ theme }) => theme.colors.danger500};
-    --danger-700: ${({ theme }) => theme.colors.danger700};
+    --red-500: ${({ theme }) => theme.colors.red500};
+    --red-700: ${({ theme }) => theme.colors.red700};
 
     --green-300: ${({ theme }) => theme.colors.green300};
     --green-500: ${({ theme }) => theme.colors.green500};

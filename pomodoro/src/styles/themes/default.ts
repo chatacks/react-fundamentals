@@ -28,8 +28,8 @@ export const defaultTheme = {
     gray600: '#202024',
     gray700: '#121214',
 
-    danger500: '#ab222E',
-    danger700: '#7a1921',
+    red500: '#ab222E',
+    red700: '#7a1921',
 
     green300: '#00b37e',
     green500: '#00875f',
