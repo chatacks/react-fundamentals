@@ -50,6 +50,9 @@ export default defineConfig([
           VariableDeclarator: 1,
         },
       ],
+      quotes: ["error", "single", { avoidEscape: true }],
+      "object-curly-spacing": ["warn", "always"],
+      "object-curly-newline": ["warn", { consistent: true }],
     },
   },
 ]);
