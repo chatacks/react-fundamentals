@@ -77,7 +77,7 @@ export const CountDownContainer = styled.div`
   }
 `;
 
-export const StartCountdownButton = styled.button`
+const ButtonBase = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,12 +87,15 @@ export const StartCountdownButton = styled.button`
   border: none;
   border-radius: .5rem;
 
-  background-color: var(--green-500);
-
   gap: .5rem;
   width: 100%;
 
   transition: background-color 500ms ease;
+  cursor: pointer;
+`;
+
+export const StartCountdownButton = styled(ButtonBase)`
+  background-color: var(--green-500);
 
   &:disabled {
     opacity: 0.7;
@@ -101,8 +104,14 @@ export const StartCountdownButton = styled.button`
 
   &:not(:disabled):hover {
     background-color: var(--green-700);
-    cursor: pointer;
+  }
+`;
 
+export const StopCountdownButton = styled(ButtonBase)`
+  background-color: var(--red-500);
+
+  &:hover {
+    background-color: var(--red-700);
   }
 `;
 
