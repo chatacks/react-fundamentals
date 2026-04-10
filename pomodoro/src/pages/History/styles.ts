@@ -48,7 +48,7 @@ export const HistoryList = styled.div`
 
     td {
       background-color: #29292e;
-      border-top: 4px solid var(--gray-700);
+      border-top: 4px solid var(--gray-600);
 
       padding: 1rem;
 
