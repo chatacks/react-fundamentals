@@ -40,6 +40,8 @@ export const defaultTheme = {
     purple100: '#ebe5f9',
     purple500: '#8047f8',
     purple700: '#4b2995',
-  }
+  },
+
+  maxWidth: '90rem',
 
 };

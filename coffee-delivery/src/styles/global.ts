@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -14,6 +14,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    --max-width: ${({ theme }) => theme.maxWidth};
+
     --text-xs: ${({ theme }) => theme.fontSize.xs};
     --text-sm: ${({ theme }) => theme.fontSize.sm};
     --text-base: ${({ theme }) => theme.fontSize.base};
@@ -81,4 +83,11 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+`;
+
+// utilitários
+
+export const BaseContainer = styled.div`
+  width: min(var(--max-width), calc(100% - 10rem * 2));
+  margin-inline: auto;
 `;
