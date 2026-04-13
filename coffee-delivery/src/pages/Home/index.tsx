@@ -1,0 +1,54 @@
+import { ImageContainer, SectionContainer } from './styles';
+import coffeeDeliveryImage from '../../assets/coffee-delivery.svg';
+import { CoffeeIcon, PackageIcon, ShoppingCartIcon, TimerIcon } from '@phosphor-icons/react';
+
+export function Home() {
+  return (
+    <SectionContainer as="section">
+      <div>
+        <div>
+          <div>
+            <h1>
+              Encontre o café perfeito <br />
+              para qualquer hora do dia
+            </h1>
+            <p>
+              Com o Coffee Delivery você recebe seu café onde estiver, a <br />qualquer hora
+            </p>
+          </div>
+
+          <div>
+            <div>
+              <span>
+                <ShoppingCartIcon weight='fill' size={22}/>
+              </span>
+              <p>Compra simples e segura</p>
+            </div>
+            <div>
+              <span>
+                <PackageIcon weight='fill' size={22}/>
+              </span>
+              <p>Embalagem mantém o café intacto</p>
+            </div>
+            <div>
+              <span>
+                <TimerIcon weight='fill' size={22}/>
+              </span>
+              <p>Entrega rápida e rastreada</p>
+            </div>
+            <div>
+              <span>
+                <CoffeeIcon weight='fill' size={22}/>
+              </span>
+              <p>O café chega fresquinho até você</p>
+            </div>
+          </div>
+        </div>
+
+        <ImageContainer>
+          <img src={coffeeDeliveryImage} alt="" />
+        </ImageContainer>
+      </div>
+    </SectionContainer>
+  );
+}
