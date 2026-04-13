@@ -7,7 +7,7 @@ import { MapPinIcon, ShoppingCartIcon } from '@phosphor-icons/react';
 export function DefaultLayout() {
   return (
     <>
-      <HeaderContainer as="header">
+      <HeaderContainer>
         <nav>
           <NavLink to="/">
             <img src={coffeeDeliveryLogo} alt="" />
