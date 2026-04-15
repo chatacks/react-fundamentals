@@ -3,9 +3,13 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   position: sticky;
   top: 0;
+
   padding-block: 2rem;
+
   width: min(var(--max-width), calc(100% - 10rem * 2));
   margin-inline: auto;
+
+  background-color: var(--gray-100);
 
   nav {
     display: flex;
