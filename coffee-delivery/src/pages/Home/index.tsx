@@ -2,7 +2,7 @@ import { Badge, ButtonCardShopp, CardContainer, CardContent, ImageContainer, Mai
 import { CoffeeIcon, PackageIcon, ShoppingCartIcon, TimerIcon } from '@phosphor-icons/react';
 import coffeeDeliveryImage from '../../assets/coffee-delivery.svg';
 import expresso from '../../assets/expresso.svg';
-import { InputCoffeeCard } from './components/InputCoffeeCard';
+import { InputCoffeeCard } from '../../components/InputCoffeeCard';
 
 export function Home() {
   return (
@@ -23,25 +23,25 @@ export function Home() {
             <div>
               <div>
                 <span>
-                  <ShoppingCartIcon weight='fill' size={22}/>
+                  <ShoppingCartIcon weight="fill" size={22}/>
                 </span>
                 <p>Compra simples e segura</p>
               </div>
               <div>
                 <span>
-                  <PackageIcon weight='fill' size={22}/>
+                  <PackageIcon weight="fill" size={22}/>
                 </span>
                 <p>Embalagem mantém o café intacto</p>
               </div>
               <div>
                 <span>
-                  <TimerIcon weight='fill' size={22}/>
+                  <TimerIcon weight="fill" size={22}/>
                 </span>
                 <p>Entrega rápida e rastreada</p>
               </div>
               <div>
                 <span>
-                  <CoffeeIcon weight='fill' size={22}/>
+                  <CoffeeIcon weight="fill" size={22}/>
                 </span>
                 <p>O café chega fresquinho até você</p>
               </div>
@@ -82,10 +82,7 @@ export function Home() {
               </div>
             </div>
           </CardContainer>
-
         </div>
-
-
       </MainContainer>
     </>
   );
