@@ -91,3 +91,29 @@ export const BaseContainer = styled.div`
   width: min(var(--max-width), calc(100% - 10rem * 2));
   margin-inline: auto;
 `;
+
+export const BaseButton = styled.button`
+  display: flex;
+  align-items: center;
+
+  border-radius: .375rem;
+  border: none;
+
+  background-color: var(--gray-400);
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+
+  cursor: pointer;
+
+  & span {
+    display: flex;
+    align-items: center;
+    color: var(--purple-500);
+  }
+
+  transition: background-color 500ms ease;
+
+  &:hover {
+    background-color: var(--gray-500);
+  }
+`;
