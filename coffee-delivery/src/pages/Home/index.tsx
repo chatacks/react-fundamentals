@@ -1,4 +1,13 @@
-import { Badge, ButtonCardShopp, CardContainer, CardContent, ImageContainer, MainContainer, SectionContainer } from './styles';
+import {
+  Badge,
+  ButtonCardShopp,
+  CardContainer,
+  CardContent,
+  HomeContainer,
+  ImageContainer,
+  SectionContainer
+} from './styles';
+
 import { CoffeeIcon, PackageIcon, ShoppingCartIcon, TimerIcon } from '@phosphor-icons/react';
 import coffeeDeliveryImage from '../../assets/coffee-delivery.svg';
 import expresso from '../../assets/expresso.svg';
@@ -54,7 +63,7 @@ export function Home() {
         </div>
       </SectionContainer>
 
-      <MainContainer as="main">
+      <HomeContainer as="main">
         <div>
           <h2>Nossos Cafés</h2>
 
@@ -83,7 +92,7 @@ export function Home() {
             </div>
           </CardContainer>
         </div>
-      </MainContainer>
+      </HomeContainer>
     </>
   );
 }

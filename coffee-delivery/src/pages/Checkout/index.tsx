@@ -23,10 +23,15 @@ import {
 
 import coffeeImage from '../../assets/expresso.svg';
 import { InputCoffeeCard } from '../../components/InputCoffeeCard';
+import { useNavigate } from 'react-router';
 
 export function Checkout() {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => navigate('/success');
+
   return (
-    <CheckoutContainer>
+    <CheckoutContainer as="main">
       <div>
         <h3>Complete seu pedido</h3>
         <FormContainer>
@@ -139,7 +144,9 @@ export function Checkout() {
             </div>
           </div>
 
-          <FinishedButton>confirmar pedido</FinishedButton>
+          <FinishedButton onClick={handleNavigate}>
+            confirmar pedido
+          </FinishedButton>
         </SelectedCoffeesContainer>
       </div>
     </CheckoutContainer>

@@ -108,7 +108,7 @@ export const ImageContainer = styled.div`
   }
 `;
 
-export const MainContainer = styled(BaseContainer)`
+export const HomeContainer = styled(BaseContainer)`
   padding-top: 2rem;
 
   & div {
