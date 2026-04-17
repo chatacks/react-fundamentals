@@ -1,8 +1,4 @@
 import {
-  Badge,
-  ButtonCardShopp,
-  CardContainer,
-  CardContent,
   HomeContainer,
   ImageContainer,
   SectionContainer
@@ -10,8 +6,9 @@ import {
 
 import { CoffeeIcon, PackageIcon, ShoppingCartIcon, TimerIcon } from '@phosphor-icons/react';
 import coffeeDeliveryImage from '../../assets/coffee-delivery.svg';
-import expresso from '../../assets/expresso.svg';
-import { InputCoffeeCard } from '../../components/InputCoffeeCard';
+import { Coffees } from './components/Coffees';
+import { coffees } from '../../data/coffees';
+
 
 export function Home() {
   return (
@@ -67,30 +64,7 @@ export function Home() {
         <div>
           <h2>Nossos Cafés</h2>
 
-          <CardContainer>
-            <div>
-              <img src={expresso} alt="" />
-            </div>
-
-            <Badge>Tradicional</Badge>
-
-            <CardContent>
-              <h3>Expresso Tradicional</h3>
-              <p>O tradicional café feito com água quente e grãos moídos</p>
-            </CardContent>
-
-            <div>
-              <p>
-                R$<span>9,90</span>
-              </p>
-              <div>
-                <InputCoffeeCard />
-                <ButtonCardShopp>
-                  <ShoppingCartIcon weight="fill" size={22} />
-                </ButtonCardShopp>
-              </div>
-            </div>
-          </CardContainer>
+          <Coffees coffees={coffees} />
         </div>
       </HomeContainer>
     </>
