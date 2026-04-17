@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
   top: 0;
 
   padding-block: 2rem;
+  z-index: 1;
 
   width: min(var(--max-width), calc(100% - 10rem * 2));
   margin-inline: auto;
