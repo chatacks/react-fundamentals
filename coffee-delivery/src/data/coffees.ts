@@ -12,15 +12,7 @@ import cubano from '../assets/cubano.svg';
 import havaiano from '../assets/havaiano.svg';
 import arabe from '../assets/arabe.svg';
 import irlandes from '../assets/irlandes.svg';
-
-export interface CoffeeType {
-  id: number;
-  image: string;
-  badges: string[];
-  name: string;
-  description: string;
-  price: string;
-}
+import type { CoffeeType } from '../@types/coffees.types';
 
 export const coffees:CoffeeType[] = [
   {
