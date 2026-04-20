@@ -23,7 +23,7 @@ export const HeaderContainer = styled.header`
 
       gap: .75rem;
 
-      div {
+      &>div:first-child {
         display: flex;
         align-items: center;
 
@@ -34,26 +34,49 @@ export const HeaderContainer = styled.header`
 
         padding: .5rem;
 
-        svg {
+        & svg {
           color: var(--purple-500);
         }
 
-        span {
+        & span {
           font-size: var(--text-sm);
           color: var(--purple-700);
         }
       }
 
-      a {
-        background-color: var(--yellow-100);
-        border-radius: .25rem;
-        color: var(--yellow-700);
+      div {
+        position: relative;
 
-        display: inline-block;
+        a {
+          background-color: var(--yellow-100);
+          border-radius: .25rem;
+          color: var(--yellow-700);
 
-        padding: .5rem;
+          display: inline-block;
 
-        line-height: 0;
+          padding: .5rem;
+
+          line-height: 0;
+
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: absolute;
+            left: 26px;
+            top: -8px;
+
+            font-size: var(--text-xs);
+            font-weight: var(--fw-bold);
+            height: 1.25rem;
+            width: 1.25rem;
+
+            background-color: var(--yellow-700);
+            color: var(--white);
+            border-radius: 50%;
+          }
+        }
       }
     }
   }
