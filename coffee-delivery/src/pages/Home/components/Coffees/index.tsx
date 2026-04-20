@@ -1,4 +1,4 @@
-import type { CoffeeType } from '../../../../data/coffees';
+import type { CoffeeType } from '../../../../@types/coffees.types';
 import { Coffee } from '../Coffee';
 import { CoffeesContainer } from './styles';
 
@@ -13,6 +13,7 @@ export function Coffees({ coffees }: CoffeesProps) {
       {coffees.map(coffee => (
         <Coffee
           key={coffee.id}
+          id={coffee.id}
           image={coffee.image}
           badges={coffee.badges}
           name={coffee.name}
