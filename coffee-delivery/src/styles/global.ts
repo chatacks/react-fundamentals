@@ -50,6 +50,8 @@ export const GlobalStyle = createGlobalStyle`
     --purple-100: ${({ theme }) => theme.colors.purple100};
     --purple-500: ${({ theme }) => theme.colors.purple500};
     --purple-700: ${({ theme }) => theme.colors.purple700};
+
+    --red-500: ${({ theme }) => theme.colors.red500}
   }
 
   html {
@@ -112,8 +114,4 @@ export const BaseButton = styled.button`
   }
 
   transition: background-color 500ms ease;
-
-  &:hover {
-    background-color: var(--gray-500);
-  }
 `;

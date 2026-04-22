@@ -1,8 +1,12 @@
 import { LocalContent, OrderContainer, PaymentContent, SuccessContainer, TimeContent } from './styles';
 import illustration from '../../assets/illustration.svg';
 import { CurrencyDollarIcon, MapPinIcon, TimerIcon } from '@phosphor-icons/react';
+import { useContext } from 'react';
+import { CoffeesContext } from '../../context';
 
 export function Success() {
+  const { order } = useContext(CoffeesContext);
+
   return (
     <SuccessContainer as="main">
       <div>
@@ -17,9 +21,9 @@ export function Success() {
               </span>
               <div>
                 <p>
-                  Entrega em <span>Rua Carolina Nunes, 281</span>
+                  Entrega em <span>{order.street}, {order.number}</span>
                 </p>
-                <p>São João de Meriti - Rio de Janeiro, RJ</p>
+                <p>{order.city} - {order.state}</p>
               </div>
             </LocalContent>
 
@@ -39,7 +43,11 @@ export function Success() {
               </span>
               <div>
                 <p>Pagamento na entrega</p>
-                <p>Cartão de Crédito</p>
+                <p>
+                  {order.payment === 'credito' && 'Cartão de Crédito'}
+                  {order.payment === 'debito' && 'Cartão de Débito'}
+                  {order.payment === 'dinheiro' && 'Dinheiro'}
+                </p>
               </div>
             </PaymentContent>
           </div>
