@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router';
+import { NavLink, Outlet, useLocation } from 'react-router';
 import { HeaderContainer } from './styles';
 
 import coffeeDeliveryLogo from '../../assets/coffe-delivery-logo.svg';
@@ -8,6 +8,7 @@ import { CoffeesContext } from '../../context';
 
 export function DefaultLayout() {
   const { orderedsCoffee } = useContext(CoffeesContext);
+  const { pathname } = useLocation();
 
   return (
     <>
@@ -26,7 +27,7 @@ export function DefaultLayout() {
             <div>
               <NavLink to="/checkout">
                 <ShoppingCartIcon weight="fill" size={22} />
-                {orderedsCoffee.length > 0 && <span>{orderedsCoffee.length}</span>}
+                {pathname !== '/success' && orderedsCoffee.length > 0 && <span>{orderedsCoffee.length}</span>}
               </NavLink>
             </div>
           </div>
