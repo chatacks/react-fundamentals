@@ -37,4 +37,6 @@ export const defaultTheme = {
     'red-700': '#7a1921',
   },
 
+  maxWidth: '90rem',
+
 } as const;

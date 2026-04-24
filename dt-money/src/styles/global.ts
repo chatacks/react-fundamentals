@@ -22,6 +22,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
+    --max-width: ${({ theme }) => theme.maxWidth};
+
     --ff-sans: ${({ theme }) => theme.fontFamily.roboto};
 
     --fw-regular: ${({ theme }) => theme.fontWeight.regular};
@@ -35,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
 
     --white: ${({ theme }) => theme.colors.white};
 
-    --gray-100: ${({ theme }) => theme.fontSize['text-3xl']};
+    --gray-100: ${({ theme }) => theme.colors['gray-100']};
     --gray-300: ${({ theme }) => theme.colors['gray-300']};
     --gray-400: ${({ theme }) => theme.colors['gray-400']};
     --gray-500: ${({ theme }) => theme.colors['gray-500']};
@@ -43,13 +45,21 @@ export const GlobalStyle = createGlobalStyle`
     --gray-700: ${({ theme }) => theme.colors['gray-700']};
     --gray-800: ${({ theme }) => theme.colors['gray-800']};
     --gray-900: ${({ theme }) => theme.colors['gray-900']};
+
+    --green-300: ${({ theme }) => theme.colors['green-300']};
+    --green-500: ${({ theme }) => theme.colors['green-500']};
+    --green-700: ${({ theme }) => theme.colors['green-700']};
+
+    --red-100: ${({ theme }) => theme.colors['red-300']};
+    --red-500: ${({ theme }) => theme.colors['red-500']};
+    --red-700: ${({ theme }) => theme.colors['red-700']};
   }
 
   html {
     font-family: var(--ff-sans);
     font-weight: var(--fw-regular);
     font-size: var(--text-base);
-    color: var(--gray-300);
+    color: var(--gray-100);
     line-height: 1.6;
 
     scroll-behavior: smooth;
