@@ -10,7 +10,6 @@ export const HeaderContainer = styled.header`
 
 export const HeaderContent = styled.div`
   ${contentBase}
-  padding-inline: 1rem;
 
   display: flex;
   justify-content: space-between;
