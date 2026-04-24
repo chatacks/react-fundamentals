@@ -49,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
     --green-500: ${({ theme }) => theme.colors['green-500']};
     --green-700: ${({ theme }) => theme.colors['green-700']};
 
-    --red-100: ${({ theme }) => theme.colors['red-300']};
+    --red-300: ${({ theme }) => theme.colors['red-300']};
     --red-500: ${({ theme }) => theme.colors['red-500']};
     --red-700: ${({ theme }) => theme.colors['red-700']};
   }
