@@ -3,8 +3,6 @@ import { contentBase } from '../../styles/mixins';
 
 export const TransactionsContainer = styled.main`
   width: 100%;
-
-  margin-block: 1.5rem 2.5rem;
 `;
 
 export const TransactionsContent = styled.div`
