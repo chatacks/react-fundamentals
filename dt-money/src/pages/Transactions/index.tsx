@@ -1,9 +1,13 @@
+import { useContext, } from 'react';
 import { Header } from '../../components/Header';
 import { Summary } from '../../components/Summary';
 import { SearchForm } from './components/SearchForm';
 import { PriceHighlight, TransactionsContainer, TransactionsContent, TransactionsTable } from './styles';
+import { TransactionsContext } from '../../contexts/transactions/TransactionsContext';
 
 export function Transactions() {
+  const { transactions } = useContext(TransactionsContext);
+
   return (
     <>
       <Header />
@@ -15,28 +19,22 @@ export function Transactions() {
         <TransactionsContent>
           <TransactionsTable>
             <tbody>
-              <tr>
-                <td>Desenvolvimento de Site</td>
-                <td>
-                  <PriceHighlight $variantColor="income">
-                    R$ 12.000,00
-                  </PriceHighlight>
-                </td>
-                <td>Venda</td>
-                <td>13/04/2026</td>
-              </tr>
+              {transactions.map(transaction => {
+                const date = new Date(transaction.createdAt);
 
-              <tr>
-                <td>Confidencial</td>
-                <td>
-                  <PriceHighlight $variantColor="outcome">
-                    - R$ 200,00
-                  </PriceHighlight>
-                </td>
-                <td>Lazer</td>
-                <td>14/04/2026</td>
-              </tr>
-
+                return (
+                  <tr key={transaction.id}>
+                    <td>{transaction.description}</td>
+                    <td>
+                      <PriceHighlight $variantColor={transaction.type}>
+                        R$ {transaction.price.toFixed(2)}
+                      </PriceHighlight>
+                    </td>
+                    <td>{transaction.category}</td>
+                    <td>{date.toLocaleString()}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </TransactionsTable>
         </TransactionsContent>
