@@ -23,7 +23,7 @@ const variants = {
     background-color: transparent;
     border: 2px solid var(--green-300);
 
-    &:hover {
+    &:not(:disabled):hover {
       background-color: var(--green-300);
       color: var(--white);
     }
@@ -50,9 +50,14 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
   ${({ $size = 'medium' }) => sizes[$size]};
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: var(--green-300);
   }
 
   ${({ $variant = 'none' }) => variants[$variant]}
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
