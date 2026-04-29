@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext } from 'use-context-selector';
 import type { Transaction } from '../../@types/transaction.type';
 import type { CreateTransactionData } from './TransactionsProvider';
 

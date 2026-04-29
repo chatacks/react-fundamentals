@@ -1,5 +1,5 @@
-import { useContext } from 'react';
 import { TransactionsContext } from '../contexts/transactions/TransactionsContext';
+import { useContextSelector } from 'use-context-selector';
 
 interface IncomeOutcomeAndTotalType {
   income: number;
@@ -8,7 +8,8 @@ interface IncomeOutcomeAndTotalType {
 }
 
 export const useSummary = () => {
-  const { transactions } = useContext(TransactionsContext);
+  const transactions = useContextSelector(TransactionsContext,
+    (context) =>  context.transactions);
 
   const summary = transactions.reduce((acc, curr) => {
     if (curr.type === 'income') {
