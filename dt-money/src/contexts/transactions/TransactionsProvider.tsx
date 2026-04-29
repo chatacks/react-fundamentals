@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import type { Transaction } from '../../@types/transaction.type';
 import { TransactionsContext, type TransactionsContextType } from './TransactionsContext';
 import { api } from '../../lib/axios';
@@ -16,39 +16,40 @@ export interface CreateTransactionData {
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  const fetchTransactions = async (query?: string) => {
-    try {
-      const response = await api.get('/transactions', {
-        params: {
-          '_sort': '-createdAt',
-          'description:contains': query,
-        }
+  const fetchTransactions = useCallback(
+    async (query?: string) => {
+      try {
+        const response = await api.get('/transactions', {
+          params: {
+            '_sort': '-createdAt',
+            'description:contains': query,
+          }
+        });
+
+        setTransactions(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }, []);
+
+  const createTransaction = useCallback(
+    async (data: CreateTransactionData) => {
+      const { description, price, category, type } = data;
+
+      const response = await api.post('/transactions', {
+        description,
+        category,
+        price,
+        type,
+        createdAt: new Date(),
       });
 
-      setTransactions(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const createTransaction = async (data: CreateTransactionData) => {
-    const { description, price, category, type } = data;
-
-    const response = await api.post('/transactions', {
-      description,
-      category,
-      price,
-      type,
-      createdAt: new Date(),
-    });
-
-
-    setTransactions(prevState => [response.data, ...prevState]);
-  };
+      setTransactions(prevState => [response.data, ...prevState]);
+    }, []);
 
   useEffect(() => {
     fetchTransactions();
-  }, []);
+  }, [fetchTransactions]);
 
   const value: TransactionsContextType = {
     transactions,
