@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from 'react';
 import type { Transaction } from '../../@types/transaction.type';
 import { TransactionsContext, type TransactionsContextType } from './TransactionsContext';
+import { api } from '../../lib/axios';
 
 interface TransactionsProviderProps {
   children: React.ReactNode;
@@ -9,22 +11,28 @@ interface TransactionsProviderProps {
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-  useEffect(() => {
-    const loadTransactions = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/transactions');
-        const data = await response.json();
-        setTransactions(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const fetchTransactions = async (query?: string) => {
 
-    loadTransactions();
+    try {
+      const response = await api.get('/transactions', {
+        params: {
+          'description:contains': query
+        }
+      });
+
+      setTransactions(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTransactions();
   }, []);
 
   const value: TransactionsContextType = {
     transactions,
+    fetchTransactions
   };
 
   return (
