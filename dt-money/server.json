@@ -1,7 +1,7 @@
 {
   "transactions": [
     {
-      "id": 1,
+      "id": "U_YkwEuZTM0",
       "description": "Desenvolvimento de site",
       "type": "income",
       "category": "Venda",
@@ -9,12 +9,45 @@
       "createdAt": "2026-04-27T11:18:35.791Z"
     },
     {
-      "id": 2,
+      "id": "U_YqwECyTM0",
       "description": "Hamburguer",
       "type": "outcome",
       "category": "Alimentação",
       "price": 50,
       "createdAt": "2026-04-26T12:17:35.751Z"
+    },
+    {
+      "description": "Youtube",
+      "category": "Venda",
+      "price": 30000,
+      "type": "income",
+      "createdAt": "2026-04-29T10:10:39.484Z",
+      "id": "U_YqwECZTM0"
+    },
+    {
+      "description": "Alura",
+      "category": "Estudo",
+      "price": 30,
+      "type": "outcome",
+      "createdAt": "2026-04-29T10:17:38.849Z",
+      "id": "466rNcJGjkA"
+    },
+    {
+      "description": "Confidencial",
+      "category": "Lazer",
+      "price": 400,
+      "type": "outcome",
+      "createdAt": "2026-04-29T10:34:58.081Z",
+      "id": "EaYlmKTkDRY"
+    },
+    {
+      "description": "Teste",
+      "category": "Teste doido",
+      "price": 1000,
+      "type": "income",
+      "createdAt": "2026-04-29T10:43:08.466Z",
+      "id": "RSlQ7VmhLLw"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
