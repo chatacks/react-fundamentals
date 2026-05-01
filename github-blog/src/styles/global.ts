@@ -77,7 +77,36 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    text-decoration: none;
-  }
+    position: relative;
 
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: .5rem;
+
+    text-transform: uppercase;
+
+    font-size: var(--text-xs);
+    font-weight: var(--fw-bold);
+
+    color: var(--blue-500);
+
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 0;
+      left: 0;
+      bottom: 8px;
+      background-color: var(--blue-500);
+      transition: width 250ms ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
 `;
