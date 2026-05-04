@@ -7,4 +7,4 @@ export function Header() {
       <img src={logo} alt="" />
     </HeaderContainer>
   );
-}
+};

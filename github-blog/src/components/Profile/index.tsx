@@ -44,4 +44,4 @@ export function Profile() {
       </ProfileContent>
     </ProfileContainer>
   );
-}
+};
