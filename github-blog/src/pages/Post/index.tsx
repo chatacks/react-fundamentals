@@ -1,7 +1,9 @@
+import { PostCard } from './components/PostCard';
+
 export function Post() {
   return (
-    <div>
-
-    </div>
+    <>
+      <PostCard />
+    </>
   );
 };
