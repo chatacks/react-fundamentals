@@ -6,6 +6,8 @@ export const SearchFormContainer = styled.div`
 
   gap: .75rem;
 
+  margin-bottom: 3rem;
+
   & div {
     display: flex;
     justify-content: space-between;
