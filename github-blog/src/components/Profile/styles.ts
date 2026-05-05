@@ -30,6 +30,8 @@ export const ProfileDescription = styled.div`
   display: flex;
   flex-direction: column;
 
+  width: 100%;
+
   gap: .5rem;
 
   &>div:first-child {

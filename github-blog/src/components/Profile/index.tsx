@@ -1,47 +1,53 @@
+import { useContext } from 'react';
 import { ProfileContainer, ProfileContent, ProfileDescription } from './styles';
 import { ArrowSquareUpRightIcon, BuildingOfficeIcon, GithubLogoIcon, UsersThreeIcon } from '@phosphor-icons/react';
+import { PostsAndUserContext } from '../../context/PostsAndUserContext';
 
 export function Profile() {
+  const { user } = useContext(PostsAndUserContext);
+
   return (
     <ProfileContainer>
-      <ProfileContent>
-        <img src="https://github.com/chatacks.png" alt="" />
+      {!user ?
+        (<p>Carregando...</p>) :
+        (<ProfileContent>
+          <img src={user.avatar_url} alt={user.name} />
 
-        <ProfileDescription>
-          <div>
-            <h2>Thyago Chatack</h2>
-            <a
-              href="https://www.github.com/chatacks"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>
-                github
-              </span>
-              <ArrowSquareUpRightIcon size={14} />
-            </a>
-          </div>
+          <ProfileDescription>
+            <div>
+              <h2>{user.name}</h2>
+              <a
+                href={user.html_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>
+                  github
+                </span>
+                <ArrowSquareUpRightIcon size={14} />
+              </a>
+            </div>
 
-          <p>
-            Olá, eu sou o Thyago! Sou Desenvolvedor FullStack com quase 2 anos de experiência e atualmente graduando em Engenharia de Software. Trabalho com tecnologias de frontend e backend como React.js/Next.js, TypeScript, Express.js, NestJS e SQL.
-          </p>
+            <p>
+              {user.bio}
+            </p>
 
-          <div>
             <div>
-              <GithubLogoIcon size={18} weight="duotone" />
-              <span>chatacks</span>
+              <div>
+                <GithubLogoIcon size={18} weight="duotone" />
+                <span>{user.login}</span>
+              </div>
+              <div>
+                <BuildingOfficeIcon size={18} weight="duotone" />
+                <span>{user.company}</span>
+              </div>
+              <div>
+                <UsersThreeIcon size={18} weight="duotone" />
+                <span>{user.followers} {user.followers > 1 ? 'seguidores' : 'seguidor'}</span>
+              </div>
             </div>
-            <div>
-              <BuildingOfficeIcon size={18} weight="duotone" />
-              <span>TeamSoft Tecnologia e Sistemas</span>
-            </div>
-            <div>
-              <UsersThreeIcon size={18} weight="duotone" />
-              <span>14 seguidores</span>
-            </div>
-          </div>
-        </ProfileDescription>
-      </ProfileContent>
+          </ProfileDescription>
+        </ProfileContent>)}
     </ProfileContainer>
   );
 };
