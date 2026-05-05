@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { contentBase } from '../../../../styles/mixins';
 
 export const PostCardContainer = styled.section`
-  margin-block: -3.5rem;
+  margin-block: -3.5rem 2.5rem;
 `;
 
 export const PostCardContent = styled.div`
