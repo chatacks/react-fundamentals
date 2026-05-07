@@ -9,21 +9,25 @@ interface PostsProps {
 
 interface Post {
   body: string;
+  title: string;
   comments: number;
+  date: string;
+  username: string;
+  htmlUrl: string;
 }
 
 export function Posts({ onPickTotalItems }: PostsProps) {
   const navigate = useNavigate();
   const { issues } = useFetchIssue();
-  console.log(issues);
-
 
   if (issues) {
     onPickTotalItems(issues.total_count);
   }
 
-  const handleNavigate = (postId: number, { body, comments }: Post) => {
-    navigate(`/post/${postId}`, { state: { body, comments } });
+  const handleNavigate = (postId: number, postInfos: Post) => {
+    navigate(`/post/${postId}`,
+      { state: postInfos }
+    );
   };
 
   return (
@@ -33,7 +37,14 @@ export function Posts({ onPickTotalItems }: PostsProps) {
           key={issue.id}
           onClick={() => handleNavigate(
             issue.id,
-            { body: issue.body, comments: issue.comments }
+            {
+              body: issue.body,
+              title: issue.title,
+              comments: issue.comments,
+              date: issue.created_at,
+              username: issue.user.login,
+              htmlUrl: issue.html_url
+            }
           )}
         >
           <PostCard

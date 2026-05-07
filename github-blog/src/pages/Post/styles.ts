@@ -13,29 +13,20 @@ export const PostContainer = styled.main`
   gap: 1.5rem;
 
   &>div:first-child {
-    & p+h4 {
-      margin-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+
+    gap: .5rem;
+
+    hr {
+      border: 0;
+      height: 0;
+      margin-block: .5rem;
     }
 
-    & h4 {
-      color: var(--blue-500);
-      text-decoration: underline;
-    }
-  }
-
-  &>div:last-child {
-    background-color: var(--slate-800);
-
-    border-radius: 2px;
-
-    padding: 1rem;
-
-    .let {
-      color: #80ABD6;
-    }
-
-    & span {
-      color: #6AD445;
+    ul, ol {
+      list-style: none;
     }
   }
+
 `;
