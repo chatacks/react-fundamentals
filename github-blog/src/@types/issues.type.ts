@@ -1,5 +1,6 @@
 interface Items {
   id: number;
+  html_url: string;
   created_at: string;
   title: string
   user: {
