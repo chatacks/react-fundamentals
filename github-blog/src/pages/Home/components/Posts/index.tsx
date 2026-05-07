@@ -1,53 +1,47 @@
 import { useNavigate } from 'react-router';
 import { PostCard } from '../PostCard';
 import { PostsContainer } from './styles';
+import { useFetchIssue } from '../../../../hooks/useFetchIssue';
 
-const posts = [
-  {
-    id: 1,
-    title: 'JavaScript data types and data structures',
-    date: 'Há 1 dia',
-    content: 'Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.'
-  },
-  {
-    id: 2,
-    title: 'JavaScript data types and data structures',
-    date: 'Há 1 dia',
-    content: 'Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.'
-  },
-  {
-    id: 3,
-    title: 'JavaScript data types and data structures',
-    date: 'Há 1 dia',
-    content: 'Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.'
-  },
-  {
-    id: 4,
-    title: 'JavaScript data types and data structures',
-    date: 'Há 1 dia',
-    content: 'Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.'
-  },
-];
+interface PostsProps {
+  onPickTotalItems: (items: number) => void
+}
 
-export function Posts() {
+interface Post {
+  body: string;
+  comments: number;
+}
+
+export function Posts({ onPickTotalItems }: PostsProps) {
   const navigate = useNavigate();
+  const { issues } = useFetchIssue();
+  console.log(issues);
 
-  const handleNavigate = (postId: number) => navigate(`/post/${postId}`);
+
+  if (issues) {
+    onPickTotalItems(issues.total_count);
+  }
+
+  const handleNavigate = (postId: number, { body, comments }: Post) => {
+    navigate(`/post/${postId}`, { state: { body, comments } });
+  };
 
   return (
     <PostsContainer>
-      {posts.map(post => (
+      {!issues ? (<p>Carregando...</p>) : (issues.items.map(issue => (
         <div
-          key={post.id}
-          onClick={() => handleNavigate(post.id)}
+          key={issue.id}
+          onClick={() => handleNavigate(
+            issue.id,
+            { body: issue.body, comments: issue.comments }
+          )}
         >
           <PostCard
-            title={post.title}
-            date={post.date}
-            content={post.content}
+            body={issue.body}
+            date={issue.created_at}
           />
         </div>
-      ))}
+      )))}
     </PostsContainer>
   );
 };

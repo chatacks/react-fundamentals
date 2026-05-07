@@ -1,28 +1,54 @@
+import { formatDistanceToNow } from 'date-fns';
 import { PostCardContainer, PostCardContent, PostCardHeader } from './styles';
+import { splitMarkdownByHeading } from './utils/splitMarkdownByHeading';
+import { ptBR } from 'date-fns/locale';
 
 interface PostCardProps {
-  id?: number;
-  title: string;
+  body: string;
   date: string;
-  content: string;
 }
 
-export function PostCard({ title, date, content  }: PostCardProps) {
+export function PostCard({ body, date }: PostCardProps) {
+  const sections = splitMarkdownByHeading(body);
+  console.log(sections);
+
+  const formattedDateWithSufix = formatDistanceToNow(date, {
+    addSuffix: true,
+    locale: ptBR
+  });
+
   return (
-    <PostCardContainer>
-      <PostCardHeader>
-        <h3>
-          {title}
-        </h3>
+    <>
+      {sections.map(section => {
+        const node = section.nodes[2];
 
-        <span>{date}</span>
-      </PostCardHeader>
+        const value =
+          node.type === 'paragraph' &&
+          node.children[0]?.type === 'text'
+            ? node.children[0].value
+            : '';
 
-      <PostCardContent>
-        <p>
-          {content}
-        </p>
-      </PostCardContent>
-    </PostCardContainer>
+        return (
+          <PostCardContainer key={section.title}>
+            <PostCardHeader>
+              <h3>
+                {section.title}
+              </h3>
+
+              <span>
+                {formattedDateWithSufix}
+              </span>
+            </PostCardHeader>
+
+            <PostCardContent>
+              <p>
+                {value}
+              </p>
+            </PostCardContent>
+          </PostCardContainer>
+        );
+      })}
+    </>
+
   );
 };
