@@ -12,11 +12,18 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
+    "@types/mdast": "^4.0.4",
     "axios": "^1.16.0",
+    "date-fns": "^4.1.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
+    "react-markdown": "^10.1.0",
     "react-router": "^7.14.2",
-    "styled-components": "^6.4.1"
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "styled-components": "^6.4.1",
+    "unified": "^11.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
